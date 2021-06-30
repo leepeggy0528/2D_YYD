@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class boss : MonoBehaviour
 {
     #region 欄位
+    [Header("訂單種類")]
+    public Sprite[] sprOrder;
     [Header("餐點位置")]
     public Transform[] traMeals;
     [Header("移動速度")]
     public float speed = 0.2f;
-
+    /// <summary>
+    /// Order-image
+    /// </summary>
+    private Image imgOrder;
+    private bool getOrder = false;
     /// <summary>
     /// 客人的位置
     /// </summary>
@@ -21,7 +27,7 @@ public class boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        imgOrder = transform.GetChild(0).Find("order").GetComponent<Image>();
     }
 
 
@@ -39,20 +45,23 @@ public class boss : MonoBehaviour
     public void GetOrder(int indexOrder, Transform traCustomer)
     {
         print("訂單編號" + indexOrder);
-
         this.traCustomer = traCustomer;
-        StartCoroutine(MoveToMeal(traMeals[indexOrder]));
+        StartCoroutine(MoveToMeal(traMeals[indexOrder], indexOrder));
+
     }
 
     /// <summary>
     /// 前往訂單位置
     /// </summary>
     /// <param name="traMeal"></param>
-    private IEnumerator MoveToMeal(Transform traMeal)
+    private IEnumerator MoveToMeal(Transform traMeal, int indexOrder)
     {
         yield return StartCoroutine(MoveToObject(traMeal));
         yield return new WaitForSeconds(0.5f);
+        imgOrder.sprite = sprOrder[indexOrder];
         yield return StartCoroutine(MoveToCustomer(traCustomer));
+
+        
     }
 
     /// <summary>
