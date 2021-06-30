@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class gamemanger : MonoBehaviour
+public class customer : MonoBehaviour
 {
     #region 欄位
     [Header("訂單種類")]
