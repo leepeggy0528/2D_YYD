@@ -5,18 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class gamemarager : MonoBehaviour
 {
-    public string screen;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        print("go coffee store");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("coffee store", LoadSceneMode.Additive);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnStartGame(int SceneNumber)
     {
-
+        SceneManager.LoadScene(SceneNumber, LoadSceneMode.Additive);
     }
 
 }
