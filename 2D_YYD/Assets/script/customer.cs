@@ -30,6 +30,8 @@ public class customer : MonoBehaviour
     /// 
     /// </summary>
     private boss boss;
+
+    private Animator ani;
     #endregion
 
     #region 事件
@@ -41,6 +43,8 @@ public class customer : MonoBehaviour
         btnOrder.onClick.AddListener(ClickOrder);
         boss = GameObject.Find("老闆").GetComponent<boss>();
 
+        ani = GetComponent<Animator>();
+
         RandomOrder();
 
     }
@@ -48,7 +52,6 @@ public class customer : MonoBehaviour
 
     void Update()
     {
-        
     }
     #endregion
 
@@ -56,9 +59,10 @@ public class customer : MonoBehaviour
     /// <summary>
     /// 隨機訂單
     /// </summary>
-     private void RandomOrder()
+    private void RandomOrder()
     {
         indexOrder = Random.Range(0, sprOrder.Length);
+        imgOrder.color = new Color(255, 255, 255, 1);
         imgOrder.sprite = sprOrder[indexOrder];
     }
 
@@ -68,6 +72,7 @@ public class customer : MonoBehaviour
     private void ClickOrder()
     {
         boss.GetOrder(indexOrder, transform);
+        ani.SetBool("wait", true);
     }
 
     /// <summary>
@@ -75,6 +80,7 @@ public class customer : MonoBehaviour
     /// </summary>
     public void GetMeal()
     {
+        ani.SetBool("wait", false);
         imgOrder.sprite = sprCoin;
     }
     #endregion

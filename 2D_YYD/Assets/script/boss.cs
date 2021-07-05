@@ -58,6 +58,7 @@ public class boss : MonoBehaviour
     {
         yield return StartCoroutine(MoveToObject(traMeal));
         yield return new WaitForSeconds(0.5f);
+        imgOrder.color =new Color(255,255,255,1);
         imgOrder.sprite = sprOrder[indexOrder];
         yield return StartCoroutine(MoveToCustomer(traCustomer));
 

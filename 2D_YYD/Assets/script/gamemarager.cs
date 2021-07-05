@@ -7,7 +7,7 @@ public class gamemarager : MonoBehaviour
 {
     public void OnStartGame(int SceneNumber)
     {
-        Application.LoadLevel(SceneNumber);
+        SceneManager.LoadScene(SceneNumber);
     }
 
 }
