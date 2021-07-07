@@ -10,6 +10,8 @@ public class customer : MonoBehaviour
     public Sprite[] sprOrder;
     [Header("金幣")]
     public Sprite sprCoin;
+    [Header("心情")]
+    public Sprite sprEmg;
 
     /// <summary>
     /// Order-image
@@ -20,7 +22,7 @@ public class customer : MonoBehaviour
     /// order-button
     /// </summary>
     private Button btnOrder;
-
+    
     /// <summary>
     /// ordernumber
     /// </summary>
@@ -31,7 +33,11 @@ public class customer : MonoBehaviour
     /// </summary>
     private boss boss;
 
+    
+    private Money Money;
+
     private Animator ani;
+
     #endregion
 
     #region 事件
@@ -52,6 +58,7 @@ public class customer : MonoBehaviour
 
     void Update()
     {
+
     }
     #endregion
 
@@ -71,8 +78,9 @@ public class customer : MonoBehaviour
     /// </summary>
     private void ClickOrder()
     {
-        boss.GetOrder(indexOrder, transform);
-        ani.SetBool("wait", true);
+
+            boss.GetOrder(indexOrder, transform);
+            ani.SetBool("wait", true);
     }
 
     /// <summary>
@@ -81,7 +89,23 @@ public class customer : MonoBehaviour
     public void GetMeal()
     {
         ani.SetBool("wait", false);
-        imgOrder.sprite = sprCoin;
+        imgOrder.sprite = sprEmg;
+        Invoke("SprCoin", 0.7f);
+        btnOrder.onClick.RemoveListener(ClickOrder);
+        
     }
+
+    private void SprCoin()
+    {
+        imgOrder.sprite = sprCoin;
+        btnOrder.onClick.AddListener(ClickMoney);
+    }
+
+    public void ClickMoney()
+    {
+        Money.money += 50;
+        imgOrder.color = new Color(255, 255, 255, 0);
+    }
+
     #endregion
 }

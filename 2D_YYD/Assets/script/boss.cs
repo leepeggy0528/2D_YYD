@@ -65,6 +65,8 @@ public class boss : MonoBehaviour
         
     }
 
+
+
     /// <summary>
     /// 前往客人位置
     /// </summary>
@@ -74,6 +76,7 @@ public class boss : MonoBehaviour
         yield return StartCoroutine(MoveToObject(traCustomer));
         yield return new WaitForSeconds(0.5f);
         traCustomer.GetComponent<customer>().GetMeal();
+        imgOrder.color = new Color(255, 255, 255, 0);
     }
 
     /// <summary>
@@ -82,7 +85,7 @@ public class boss : MonoBehaviour
     /// <param name="traget">指定物件</param>
     private IEnumerator MoveToObject(Transform traget)
     {
-        while (Vector3.Distance(transform.position, traget.position) >= 0.5f)
+        while (Vector3.Distance(transform.position, traget.position) >= 1.5f)
         {
             transform.position = Vector3.MoveTowards(transform.position, traget.position, speed);
             yield return new WaitForSeconds(0.02f);
