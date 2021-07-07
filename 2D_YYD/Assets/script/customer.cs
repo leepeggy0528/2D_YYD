@@ -12,6 +12,8 @@ public class customer : MonoBehaviour
     public Sprite sprCoin;
     [Header("心情")]
     public Sprite sprEmg;
+    [Header("思考")]
+    public Sprite sprTik;
 
     /// <summary>
     /// Order-image
@@ -46,13 +48,15 @@ public class customer : MonoBehaviour
     {
         imgOrder = transform.GetChild(0).Find("order").GetComponent<Image>();
         btnOrder = imgOrder.GetComponent<Button>();
-        btnOrder.onClick.AddListener(ClickOrder);
+
         boss = GameObject.Find("老闆").GetComponent<boss>();
         Money = GameObject.Find("Canvas").GetComponent<Money>();
 
         ani = GetComponent<Animator>();
 
-        RandomOrder();
+        imgOrder.color = new Color(255, 255, 255, 1);
+        imgOrder.sprite = sprTik;
+        Invoke("RandomOrder", 0.7f);
 
     }
 
@@ -70,8 +74,8 @@ public class customer : MonoBehaviour
     private void RandomOrder()
     {
         indexOrder = Random.Range(0, sprOrder.Length);
-        imgOrder.color = new Color(255, 255, 255, 1);
         imgOrder.sprite = sprOrder[indexOrder];
+        btnOrder.onClick.AddListener(ClickOrder);
     }
 
     /// <summary>
