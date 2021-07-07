@@ -48,6 +48,7 @@ public class customer : MonoBehaviour
         btnOrder = imgOrder.GetComponent<Button>();
         btnOrder.onClick.AddListener(ClickOrder);
         boss = GameObject.Find("老闆").GetComponent<boss>();
+        Money = GameObject.Find("Canvas").GetComponent<Money>();
 
         ani = GetComponent<Animator>();
 
@@ -101,9 +102,9 @@ public class customer : MonoBehaviour
         btnOrder.onClick.AddListener(ClickMoney);
     }
 
-    public void ClickMoney()
+    private void ClickMoney()
     {
-        Money.money += 50;
+        Money.AddMoney();
         imgOrder.color = new Color(255, 255, 255, 0);
     }
 
