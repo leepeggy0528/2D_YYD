@@ -20,10 +20,26 @@ public class Money : MonoBehaviour
         
     }
 
-    public void AddMoney()
+    public void AddMoney(int indexOrder)
 
     {
-        money += 50;
+        switch (indexOrder){
+            case 0:
+                money += 100;
+                break;
+            case 1:
+                money += 80;
+                break;
+            case 2:
+                money += 50;
+                break;
+            case 3:
+                money += 30;
+                break;
+            case 4:
+                money += 50;
+                break;
+        }
         textMoney.text = "$" + money;
     }
 }

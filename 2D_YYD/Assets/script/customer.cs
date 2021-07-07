@@ -108,7 +108,7 @@ public class customer : MonoBehaviour
 
     private void ClickMoney()
     {
-        Money.AddMoney();
+        Money.AddMoney(indexOrder);
         imgOrder.color = new Color(255, 255, 255, 0);
     }
 
