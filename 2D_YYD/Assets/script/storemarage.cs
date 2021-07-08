@@ -1,0 +1,44 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class storemarage : MonoBehaviour
+{
+    #region 欄位
+    ///<summary>
+    ///player information
+    /// </summary>
+    private CanvasGroup groupFinal;
+
+    private Button btnPause;
+    private Button btnContinue;
+    private Button btnExit;
+
+    #endregion
+
+    #region 事件
+    private void Start()
+    {
+        groupFinal = GameObject.Find("pauseImage").GetComponent<CanvasGroup>();
+
+        btnPause = GameObject.Find("pause").GetComponent<Button>();
+        btnContinue = GameObject.Find("continue").GetComponent<Button>();
+        btnExit = GameObject.Find("exit").GetComponent<Button>();
+
+        btnPause.onClick.AddListener(Pause);
+    }
+
+    private void Pause()
+    {
+
+        groupFinal.alpha = 1;
+        groupFinal.interactable = true;
+        groupFinal.blocksRaycasts = true;
+    }
+    #endregion
+
+    #region 方法
+
+    #endregion
+}
