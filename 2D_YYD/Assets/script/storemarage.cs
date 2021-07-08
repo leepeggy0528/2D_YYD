@@ -27,6 +27,7 @@ public class storemarage : MonoBehaviour
         btnExit = GameObject.Find("exit").GetComponent<Button>();
 
         btnPause.onClick.AddListener(Pause);
+        btnContinue.onClick.AddListener(Continue);
     }
 
     private void Pause()
@@ -35,6 +36,13 @@ public class storemarage : MonoBehaviour
         groupFinal.alpha = 1;
         groupFinal.interactable = true;
         groupFinal.blocksRaycasts = true;
+    }
+
+    private void Continue()
+    {
+        groupFinal.alpha = 0;
+        groupFinal.interactable = false;
+        groupFinal.blocksRaycasts = false;
     }
     #endregion
 
