@@ -270,7 +270,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -6885756742863968974, guid: 38c062df4da10a04eacf98bb369755d3,
+          type: 3}
         m_MethodName: OnStartGame
         m_Mode: 3
         m_Arguments:
