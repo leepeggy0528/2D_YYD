@@ -21,6 +21,7 @@ public class customerMarager : MonoBehaviour
     public customerdata customer;
 
     private int indexOrder;
+    private int pointOrder;
 
     private GameObject imgOrder;
 
@@ -56,33 +57,34 @@ public class customerMarager : MonoBehaviour
     {
         for (int i = 0; i < customer.points.Length; i++)
         {
-           switch (customer.points[i])
+            pointOrder = Random.Range(0, pointarrival.Length);
+            switch (customer.points[i])
             {
                 case customerdata.PointType.zero:
                     indexOrder = Random.Range(0, objcustomer.Length);
                     GameObject o0 = Instantiate(objcustomer[indexOrder], pointarrival[0].position, Quaternion.identity);
-                    Destroy(o0, 10f);
+                    Destroy(o0, 8f);
                     break;
                 case customerdata.PointType.one:
                     indexOrder = Random.Range(0, objcustomer.Length);
                     GameObject o1 = Instantiate(objcustomer[indexOrder], pointarrival[1].position, Quaternion.identity);
-                    Destroy(o1, 10f);
+                    Destroy(o1, 8f);
                     break;
 
                 case customerdata.PointType.two:
                     indexOrder = Random.Range(0, objcustomer.Length);
                     GameObject o2 = Instantiate(objcustomer[indexOrder], pointarrival[2].position, Quaternion.identity);
-                    Destroy(o2, 10f);
+                    Destroy(o2, 8f);
                     break;
                 case customerdata.PointType.three:
                     indexOrder = Random.Range(0, objcustomer.Length);
                     GameObject o3 = Instantiate(objcustomer[indexOrder], pointarrival[3].position, Quaternion.identity);
-                    Destroy(o3, 10f);
+                    Destroy(o3, 8f);
                     break;
                 case customerdata.PointType.four:
                     indexOrder = Random.Range(0, objcustomer.Length);
                     GameObject o4 = Instantiate(objcustomer[indexOrder], pointarrival[4].position, Quaternion.identity);
-                    Destroy(o4, 10f);
+                    Destroy(o4, 8f);
                     break;
             }
 

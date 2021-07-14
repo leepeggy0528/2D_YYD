@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 7410278627290458672}
   - component: {fileID: 7410278627290458679}
   - component: {fileID: 7410278627290458677}
+  - component: {fileID: 9179850726146266081}
   m_Layer: 0
   m_Name: yanzao
   m_TagString: Untagged
@@ -342,3 +343,22 @@ MonoBehaviour:
   sprCoin: {fileID: -590313304783847437, guid: e83fef778af8893499ba2eba5b919dd9, type: 3}
   sprEmg: {fileID: 4893958454254869775, guid: fc483199d10286d4fb557315233a4fcf, type: 3}
   sprTik: {fileID: 8862161151565122545, guid: fc483199d10286d4fb557315233a4fcf, type: 3}
+--- !u!95 &9179850726146266081
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410278627290458676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5cf71a32a6892024188a9d71b8b3b7d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
