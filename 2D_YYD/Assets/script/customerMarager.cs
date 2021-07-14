@@ -20,6 +20,8 @@ public class customerMarager : MonoBehaviour
     [Header("客人")]
     public customerdata customer;
 
+    private CanvasGroup groupFinal;
+
     private int indexOrder;
     private int pointOrder;
 
@@ -37,6 +39,7 @@ public class customerMarager : MonoBehaviour
     private void Start()
     {
         imgOrder = GameObject.Find("departure").GetComponent<GameObject>();
+        groupFinal = GameObject.Find("thankCanvas").GetComponent<CanvasGroup>();
         Invoke("Startcustomer", 1f);
     }
     private void Update()
@@ -91,7 +94,11 @@ public class customerMarager : MonoBehaviour
             yield return new WaitForSeconds(4f);
             
         }
-        
+        yield return new WaitForSeconds(2f);
+        groupFinal.alpha = 1;
+        groupFinal.interactable = true;
+        groupFinal.blocksRaycasts = true;
+
     }
 
     ///<summary>

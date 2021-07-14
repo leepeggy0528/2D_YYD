@@ -13,7 +13,6 @@ public class storemarage : MonoBehaviour
 
     private Button btnPause;
     private Button btnContinue;
-    private Button btnExit;
 
     #endregion
 
@@ -24,7 +23,7 @@ public class storemarage : MonoBehaviour
 
         btnPause = GameObject.Find("pause").GetComponent<Button>();
         btnContinue = GameObject.Find("continue").GetComponent<Button>();
-        btnExit = GameObject.Find("exit").GetComponent<Button>();
+
 
         btnPause.onClick.AddListener(Pause);
         btnContinue.onClick.AddListener(Continue);
