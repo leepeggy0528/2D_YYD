@@ -31,7 +31,7 @@ public class storemarage : MonoBehaviour
 
     private void Pause()
     {
-
+        Time.timeScale = 0;
         groupFinal.alpha = 1;
         groupFinal.interactable = true;
         groupFinal.blocksRaycasts = true;
@@ -39,6 +39,7 @@ public class storemarage : MonoBehaviour
 
     private void Continue()
     {
+        Time.timeScale = 1;
         groupFinal.alpha = 0;
         groupFinal.interactable = false;
         groupFinal.blocksRaycasts = false;

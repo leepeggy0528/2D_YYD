@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "peggy/customerdata", fileName = "CustomerData")]
 public class customerdata : ScriptableObject
 {
-    [Header("音樂節點")]
+    [Header("位置")]
     public PointType[] points;
     public enum PointType
     {

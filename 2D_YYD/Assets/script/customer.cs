@@ -11,7 +11,7 @@ public class customer : MonoBehaviour
     [Header("金幣")]
     public Sprite sprCoin;
     [Header("心情")]
-    public Sprite sprEmg;
+    public Sprite[] sprEmg;
     [Header("思考")]
     public Sprite sprTik;
 
@@ -24,21 +24,22 @@ public class customer : MonoBehaviour
     /// order-button
     /// </summary>
     private Button btnOrder;
-    
+
     /// <summary>
     /// ordernumber
     /// </summary>
     private int indexOrder;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    private bool bad= true;
+
     private boss boss;
 
     
     private Money Money;
 
     private Animator ani;
+
+    private CanvasGroup groupFinal;
 
     #endregion
 
@@ -49,14 +50,18 @@ public class customer : MonoBehaviour
         imgOrder = transform.GetChild(0).Find("order").GetComponent<Image>();
         btnOrder = imgOrder.GetComponent<Button>();
 
+
         boss = GameObject.Find("老闆").GetComponent<boss>();
         Money = GameObject.Find("Canvas").GetComponent<Money>();
+
+        groupFinal = GameObject.Find("GameOver").GetComponent<CanvasGroup>();
 
         ani = GetComponent<Animator>();
 
         imgOrder.color = new Color(255, 255, 255, 1);
         imgOrder.sprite = sprTik;
         Invoke("RandomOrder", 0.7f);
+        Invoke("Mood", 3f);
 
     }
 
@@ -78,12 +83,28 @@ public class customer : MonoBehaviour
         btnOrder.onClick.AddListener(ClickOrder);
     }
 
+    private void Mood()
+    {
+        StartCoroutine(MoodBad());
+    }
+
+    private IEnumerator MoodBad()
+    {
+        if (bad == true)
+        {
+            imgOrder.sprite = sprEmg[1];
+            btnOrder.onClick.RemoveListener(ClickOrder);
+            yield return new WaitForSeconds(1f);
+            this.gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// 點擊訂單
     /// </summary>
     private void ClickOrder()
     {
-
+            bad = false;
             boss.GetOrder(indexOrder, transform);
             ani.SetBool("wait", true);
     }
@@ -94,7 +115,7 @@ public class customer : MonoBehaviour
     public void GetMeal()
     {
         ani.SetBool("wait", false);
-        imgOrder.sprite = sprEmg;
+        imgOrder.sprite = sprEmg[0];
         Invoke("SprCoin", 0.7f);
         btnOrder.onClick.RemoveListener(ClickOrder);
         
@@ -111,6 +132,5 @@ public class customer : MonoBehaviour
         Money.AddMoney(indexOrder);
         imgOrder.color = new Color(255, 255, 255, 0);
     }
-
     #endregion
 }
